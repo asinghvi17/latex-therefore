@@ -7,7 +7,6 @@
 \ProvidesPackage{therefore}[2013/06/20 Therefore Package written by Brian Schiller]
 
 \RequirePackage{arrayjobx}
-\RequirePackage{xstring} % for lowercase therefore
 
 % begin array declaration
 \newarray\ThereforePhrases
@@ -62,7 +61,3 @@
 	\ThereforePhrases(\arabic{phraseIndex})
 }
 
-\def\ltherefore{%lowercase therefore
-	\rand
-	\let\gamma{\expandafter\Therefore}
-	\StrSubstitute[1]{\gamma}{\expandafter\StrChar{\expandafter\gamma}{1}}{\expandafter\lowercase\\expandafter\StrChar{\expandafter\gamma}{1}}
