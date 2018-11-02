@@ -7,6 +7,9 @@
 \ProvidesPackage{therefore}[2013/06/20 Therefore Package written by Brian Schiller]
 
 \RequirePackage{arrayjobx}
+\RequirePackage{xstring} % for lowercase therefore
+
+% begin array declaration
 \newarray\ThereforePhrases
 \ThereforePhrases(1)={Therefore,}
 \ThereforePhrases(2)={Hence,}
@@ -43,7 +46,7 @@
 \ThereforePhrases(33)={It satisfies the principle of isotropy of the universe that}
 \ThereforePhrases(34)={By symmetry,}
 \ThereforePhrases(35)={As a trivial consequence of this,}
-
+% length of array
 \def\numphrases{35}
 
 %allow user to set seed
@@ -58,3 +61,8 @@
 	\rand
 	\ThereforePhrases(\arabic{phraseIndex})
 }
+
+\def\ltherefore{%lowercase therefore
+	\rand
+	\let\gamma{\expandafter\Therefore}
+	\StrSubstitute[1]{\gamma}{\expandafter\StrChar{\expandafter\gamma}{1}}{\expandafter\lowercase\\expandafter\StrChar{\expandafter\gamma}{1}}
